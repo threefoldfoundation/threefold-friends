@@ -7,6 +7,6 @@ Webserver for ambassador website
 
 ## instructions how to use
 
-see [contribution](docs/contribution.md)
+see [contributing](docs/contributing.md)
 
 
