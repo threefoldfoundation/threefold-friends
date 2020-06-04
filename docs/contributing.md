@@ -1,7 +1,7 @@
 
 ## Usage (DEV)
 
-**Clone data repo  https://github.com/threefoldfoundation/www_threefold_ecosystem into `public/threefold`
+**Clone data repo  https://github.com/threefoldfoundation/data_threefold_projects_friends into `public/threefold`
 
 - Frontend
 	```
