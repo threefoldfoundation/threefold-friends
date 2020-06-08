@@ -15,10 +15,9 @@ h3 {
     color: #307960 !important;
 }
 
-.ambassador_text{
-    font-size:1.1em !important;
-    margin:0 !important;
-
+.ambassador_text {
+    font-size: 1.1em !important;
+    margin: 0 !important;
 }
 
 #wrapper {
@@ -807,6 +806,25 @@ ul.posts article .image {
 
 #video-popup-close:hover {
     color: #de0023;
+}
+
+.intro h3 {
+    letter-spacing: 0.1em;
+}
+
+.value {
+    background-color: #eef5f3;
+}
+
+.intro p {
+    line-height: 1.5;
+}
+
+.ff-rights h3,
+.ff-dec h3,
+.ff-laws h3 {
+    font-weight: 500 !important;
+    letter-spacing: 0.1em;
 }
 
 
