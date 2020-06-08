@@ -15,70 +15,32 @@
       <div class="row">
       <header class="text-center mx-auto mb-2">
         <div class="title">
-          <h1 class="text-uppercase my-3">conscious internet alliance</h1>
-          <p class="font-weight-normal h3">
-            A collective and open ecosystem of planet and human centric
-            projects
+          <h1 class="text-uppercase my-3">AMBASSADORS</h1>
+          <p class="font-weight-normal ambassador_text">
+            Our ambassadors are people who support us on the journey to a better world.
+            <br>
+            Each of them believes in the values and mission of ThreeFold. They are proud Token Holders and all have a value-added network.
+          </p>
+          <p class="home_tf">
+            
           </p>
         </div>
       </header>
         <span class="image featured">
-          <img src="images/green-header2.png" alt="" />
+          <img src="images/ambassador_home.png" alt="" />
         </span>
-        <div class="col-sm-10 offset-sm-1">
+        <!-- <div class="col-sm-10 offset-sm-1">
 
           <p class="home_tf">
-            We are
-            <a href="http://threefold.io/" target="_blank">ThreeFold</a>
-            and we have built a bridge to a new peer-to-peer internet. Internet
-            that empowers equality, autonomy and sustainability.
+            Each of them believes in the values and mission of ThreeFold. They are proud Token Holders and all have a value-added network.
           </p>
-          <p class="home_tf">
-            As we launch the
-            <a href="https://threefold.io/capacity.html" target="_blank">
-              Grid
-            </a>
-            and other experiences on top, the time has come for us to cross over
-            to the decentralized world of peer-to-peer.
-          </p>
-
-          <p class="home_tf">
-            A decentralized peer-to-peer world would be incomplete without
-            <a href="https://threefold.io/token.html" target="_blank">
-              ThreeFold Token
-            </a>
-            - a purpose driven decentralized digital currency serving as a fair
-            and trustworthy medium of exchange.
-          </p>
-
-          <p class="home_tf">
-            A decentralized peer-to-peer world would be impossible without the
-            <a
-              href="https://www.consciousinternet.org/#/circles"
-              target="_blank">
-              Threefold Ambassadors
-            </a>
-            , an ecosystem of beautifully aligned projects co-creating it.
-          </p>
-
-          <p class="home_tf">
-            With all the underlying elements, together we are co-creating the
-            new peer-to-peer internet, empowering a better future for humanity
-            and our planet.
-          </p>
-          <p class="home_tf text-center">
-            If not
-            <span class="home_span">us</span>
-            , who? If not
-            <span class="home_span">now</span>
-            , when?
-          </p>
+          
           <div class="text-center link_wrapper my-4">
             <a href="#/circles" class="button large text-uppercase">
               see projects
             </a>
           </div>
-        </div>
+        </div> -->
       </div>
     </article>
   </div>

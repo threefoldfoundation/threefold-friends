@@ -15,6 +15,12 @@ h3 {
     color: #307960 !important;
 }
 
+.ambassador_text{
+    font-size:1.1em !important;
+    margin:0 !important;
+
+}
+
 #wrapper {
     width: 80em !important;
 }
