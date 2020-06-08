@@ -2,12 +2,15 @@ import { writable } from 'svelte/store';
 
 let fetched_users = [];
 let fetched_projects = [];
-let fetched_ambassadors;
 let project_tags = []
 let user_tags = []
 let all_tags = []
 
-
+function compare(a, b) {
+    if (a.info.rank > b.info.rank) return -1;
+    if (b.info.rank < a.info.rank) return 1;
+    return 0;
+}
 
 async function fetch_data(){
     let response = await fetch(`${window.location.origin}/data`);
@@ -17,16 +20,15 @@ async function fetch_data(){
     for (var p of obj.projects) {
         p.name = p.info.name
     }
-    return { projects: obj.projects, users: obj.people.filter(user =>user.ecosystem.memberships.includes('ambassador')), ambassadors : obj.ambassadors};
+    return { projects: obj.projects.sort(compare), users: obj.people };
 }
 
 fetch_data().then((data)=>{
     fetched_users = data['users']
     fetched_projects = data['projects']
-    fetched_ambassadors = data['ambassadors']
+    console.log(fetched_projects)
     users.set(fetched_users)
     projects.set(fetched_projects)
-    ambassadors.set(fetched_ambassadors)
     loading.set(false)
 
     data['projects'].map(function(p){
@@ -46,11 +48,11 @@ fetch_data().then((data)=>{
     })
 
     user_tags.forEach(function(t){
-        all_tags.push({"href": "#/people/tags/"+t, "name": t})
+        all_tags.push({"href": "#/ambassadors/tags/"+t, "name": t})
     })
 
     project_tags.forEach(function(t){
-        all_tags.push({"href": "#/projects/tags/"+t, "name": t})
+        all_tags.push({"href": "#/circles/tags/"+t, "name": t})
     })
 
     projectags.set(project_tags)
@@ -60,8 +62,6 @@ fetch_data().then((data)=>{
 
 export const users = writable(fetched_users);
 export const projects = writable(fetched_projects);
-export const ambassadors = writable(fetched_ambassadors);
-
 export let loading = writable(true)
 export const projectags = writable(project_tags)
 export const usertags = writable(user_tags)

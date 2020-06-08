@@ -97,6 +97,19 @@ def _walk(path : String = CURR_PATH)
                         item.as(Project).info.description =  info["description"].as(String)
                       end
 
+                      if info.has_key?("rank")
+                        rank : Int64 = info["rank"].as(Int64)
+                        if rank > 5_64
+                          rank = 5_64
+                        end
+
+                        if rank < 1_64
+                          rank = 1_64
+                        end
+
+                        item.as(Project).info.rank =  rank
+                      end
+
                       if info.has_key?("name")
                         item.as(Project).info.name =  info["name"].as(String)
                       end
@@ -191,9 +204,6 @@ def _walk(path : String = CURR_PATH)
   WEBSITES.projects.each do |item|
     item.name = item.name.gsub("_", " ")
   end
-  WEBSITES.ambassadors["home"] = File.read(CURR_PATH + "/ambassadors/home.md")
-  WEBSITES.ambassadors["values"] = File.read(CURR_PATH + "/ambassadors/values.md")
-
 end
 
 get "/data" do |env|
@@ -247,7 +257,7 @@ post "/webhooks" do |env|
 end
 
 
-get "/projects/:name" do |env|
+get "/circles/:name" do |env|
   WEBSITES.projects.clear
   WEBSITES.people.clear
   _walk 
@@ -270,7 +280,7 @@ get "/projects/:name" do |env|
 <html>
   <head>
     <title>Concious Internet Alliance</title>
-    <meta property="og:url"           content="https://#{host}/projects/#{name}"/>
+    <meta property="og:url"           content="https://#{host}/circles/#{name}"/>
     <meta property="og:type"          content="article" />
     <meta property="og:title"         content="#{name.capitalize}" />
     <meta property="og:description"   content="#{p.not_nil!.info.mission}" />
@@ -281,13 +291,13 @@ get "/projects/:name" do |env|
 </html>
 )
   else
-    env.redirect "/#/projects/#{name}"
+    env.redirect "/#/circles/#{name}"
   end
 
 end
 
 
-get "/people/:name" do |env|
+get "/ambassadors/:name" do |env|
   WEBSITES.projects.clear
   WEBSITES.people.clear
   _walk 
@@ -308,7 +318,7 @@ get "/people/:name" do |env|
 <html>
   <head>
     <title>Concious Internet Alliance</title>
-    <meta property="og:url"           content="https://#{host}/people/#{name}"/>
+    <meta property="og:url"           content="https://#{host}/ambassadors/#{name}"/>
     <meta property="og:type"          content="article" />
     <meta property="og:title"         content="#{p.not_nil!.info.name.capitalize}" />
     <meta property="og:description"   content="" />
@@ -319,7 +329,7 @@ get "/people/:name" do |env|
 </html>
 )
   else
-    env.redirect "/#/people/#{name}"
+    env.redirect "/#/ambassadors/#{name}"
   end
 
 end

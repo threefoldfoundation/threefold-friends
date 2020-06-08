@@ -74,10 +74,11 @@ class ProjectInfo
         countries: Array(Country),
         cities: Array(City),
         mission: String,
-        description: String
+        description: String,
+        rank: Int64
     )
 
-    def initialize(@name="", @team=Array(String).new, @cities=Array(City).new, @countries=Array(Country).new, @mission="", @description="");end
+    def initialize(@name="", @team=Array(String).new, @cities=Array(City).new, @countries=Array(Country).new, @mission="", @description="", @rank=1_i64);end
 
 end
 
@@ -177,8 +178,6 @@ class Websites
     JSON.mapping(
         projects: Array(Project),
         people: Array(User) ,
-        ambassadors: Hash(String, String)
     )
-    def initialize (@projects=Array(Project).new, @people=Array(User).new, @ambassadors={"home" => "", "values" => ""}); end
-
+    def initialize (@projects=Array(Project).new, @people=Array(User).new); end
 end

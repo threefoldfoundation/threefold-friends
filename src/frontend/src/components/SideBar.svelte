@@ -1,7 +1,7 @@
 <script>
   import MiniProjectList from "./MiniProjectList.svelte";
   import MiniUserList from "./MiniUserList.svelte";
-  // import TagCloud from "./TagCloud.svelte"
+  import TagCloud from "./TagCloud.svelte"
 
   import Footer from "./Footer.svelte";
   import { alltags } from "../../store.js";
@@ -18,18 +18,25 @@
       <img src="images/logo.png" alt="" />
     </a> -->
     <header>
-      <h1>Threefold Friends</h1>
+      <h1>Threefold Ambassadors</h1>
       <p>
         
       </p>
     </header>
   </section>
 
+  <TagCloud tags={$alltags} />
+
   <!-- Mini Projects -->
   
 
 
+{#if location.href.includes("#/ambassadors")}
+  <MiniUserList {users} />
+  {:else}
+<MiniProjectList {miniProjects} />  
 
+{/if}
 
   <!-- User List -->
 

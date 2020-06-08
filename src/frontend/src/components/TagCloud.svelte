@@ -1,17 +1,17 @@
 <script>
 export let tags;
 
-  let tags_category = "projects"
-  if(window.location.href.includes("people")){
-      tags_category = "people"
+  let tags_category = "circles"
+  if(window.location.href.includes("ambassadors")){
+      tags_category = "ambassadors"
   }
   tags = tags.filter(t =>
       t.href.includes(tags_category)
   );
 
   function getSelected(t){
-    var projectsIdx = t.indexOf("#/projects/tags")
-    var peopleIdx = t.indexOf("#/people/tags")
+    var projectsIdx = t.indexOf("#/circles/tags")
+    var peopleIdx = t.indexOf("#/ambassadors/tags")
     if (projectsIdx != -1)
       return t.substring(projectsIdx+16)
     else if (peopleIdx != -1)
@@ -39,13 +39,13 @@ export let tags;
       {/if}
   {/each}
 
-  {#if selected == "all" && tags_category == "projects"}
-     <li class="my-1"><a  on:click={tagSelected} class= "active" href="#/projects">ALL</a></li>
-  {:else if tags_category == "projects"}
-     <li class="my-1"><a   on:click={tagSelected} href="#/projects">ALL</a></li>
-  {:else if selected == "all" && tags_category == "people"}
-  <li class="my-1"><a  on:click={tagSelected}  class= "active" href="#/people">ALL</a></li>
-  {:else if tags_category == "people"}
-  <li class="my-1"><a  on:click={tagSelected} href="#/people">ALL</a></li>
+  {#if selected == "all" && tags_category == "circles"}
+     <li class="my-1"><a  on:click={tagSelected} class= "active" href="#/circles">ALL</a></li>
+  {:else if tags_category == "circles"}
+     <li class="my-1"><a   on:click={tagSelected} href="#/circles">ALL</a></li>
+  {:else if selected == "all" && tags_category == "ambassadors"}
+  <li class="my-1"><a  on:click={tagSelected}  class= "active" href="#/ambassadors">ALL</a></li>
+  {:else if tags_category == "ambassadors"}
+  <li class="my-1"><a  on:click={tagSelected} href="#/ambassadors">ALL</a></li>
   {/if}
 </ul>

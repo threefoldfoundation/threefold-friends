@@ -2,11 +2,12 @@
 //     wrap
 // } from '../../Router.svelte'
 import Home from './routes/Home.svelte'
+import Values from './routes/Values.svelte'
 import Projects from './routes/Projects.svelte'
 import Users from './routes/Users.svelte'
 import Search from './routes/Search.svelte'
 import Join from './routes/Join.svelte'
-import Values from "./routes/Values.svelte"
+import Council from "./routes/Council.svelte"
 import ProjectDetails from './routes/ProjectDetails.svelte'
 import UserDetails from './routes/UserDetails.svelte'
 import Error from './routes/Error.svelte'
@@ -28,8 +29,9 @@ if (!urlParams.has('routemap')) {
         '/ambassadors/:name': UserDetails,
         '/search/:keyword': Search,
         '/join': Join,
-        '/values': Values,
-        '/error': Error
+        '/council': Council,
+        '/error': Error,
+        '/values': Values
 
         // // Using named parameters, with last being optional
         // '/author/:first/:last?': Author,
@@ -45,16 +47,17 @@ if (!urlParams.has('routemap')) {
     routes = new Map()
     // Exact path
     routes.set('/', Home)
-    routes.set('/projects', Projects)
+    routes.set('/circles', Projects)
     routes.set('/ambassadors', Users)
-    routes.set( '/projects/tags/:tagname', Projects)
+    routes.set( '/circles/tags/:tagname', Projects)
     routes.set( '/ambassadors/tags/:tagname', Users)
-    routes.set('/projects/:name', ProjectDetails)
+    routes.set('/circles/:name', ProjectDetails)
     routes.set('/ambassadors/:name', UserDetails)
     routes.set('/search/:keyword', Search)
     routes.set('/join', Join)
-    routes.set('/values', Values)
+    routes.set('/council', Council)
     routes.set('/allprojects', AllProjects)
     routes.set('/error', Error)
+    outes.set('/values', Values)
 }
 export default routes

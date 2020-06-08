@@ -8,13 +8,13 @@
     <div class="title">
       {#if item.isUser}
         <h3>Person:</h3>
-        <a class="author text-uppercase" href="#/people/{item.name}">
+        <a class="author text-uppercase" href="#/ambassadors/{item.name}">
         <img src={item.links.image_path} alt="" />
         {item.name}
       </a>
       {:else}
         <h3>Company:</h3>
-        <a class="author text-uppercase" href="#/projects/{item.name}">
+        <a class="author text-uppercase" href="#/circles/{item.name}">
         <img src={item.links.image_path} alt="" />
         {item.name}
       </a>

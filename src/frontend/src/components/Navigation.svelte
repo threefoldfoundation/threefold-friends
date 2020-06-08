@@ -2,11 +2,11 @@
   import { link } from "svelte-spa-router";
 
   function getActive(t) {
-    if (t.includes("#/people") || t == "PEOPLE") {
-      return "people";
+    if (t.includes("#/ambassadors") || t == "AMBASSADORS") {
+      return "ambassadors";
     } else if (t.includes("#/circles") || t == "CIRCLES") {
       return "circles";
-    } else if (t.includes("#/values") || t == "VALUES") {
+    }else if (t.includes("#/values") || t == "VALUES") {
       return "values";
     }
     return "home";
@@ -45,7 +45,7 @@
         {/if}
       </li>
       <li>
-        {#if active == 'circles'}
+        {#if active == 'projects'}
           <a class="active" href="#/circles" on:click={linkClick}>Circles</a>
         {:else}
           <a href="#/circles" on:click={linkClick}>Circles</a>
@@ -59,13 +59,14 @@
         {/if}
       </li>
 
-       <li>
+      <li>
         {#if active == 'values'}
           <a class="active" href="#/values" on:click={linkClick}>Values</a>
         {:else}
           <a href="#/values" on:click={linkClick}>Values</a>
         {/if}
       </li>
+
       <label for="toggle-btn" class="hide-menu-btn">
         <i class="fas fa-times" />
       </label>

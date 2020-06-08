@@ -118,7 +118,7 @@ let project_data = $projects.find(
           <ul>
             {#each team as person}
               <li class="my-2">
-                <a href="#/people/{person.name}" class="author">
+                <a href="#/ambassadors/{person.name}" class="author">
                   <img src={person.links.image_path} alt="" />
                   {person.info.name}
                 </a>
@@ -268,7 +268,7 @@ let project_data = $projects.find(
           <ul class="stats">
             {#each project_data.ecosystem.categories as category}
               <li>
-                <a href="#/projects/tags/{category}">{category}</a>
+                <a href="#/circles/tags/{category}">{category}</a>
               </li>
             {/each}
           </ul>
