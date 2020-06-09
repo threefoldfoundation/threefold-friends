@@ -1,9 +1,9 @@
 <script>
 export let tags;
 
-  let tags_category = "circles"
-  if(window.location.href.includes("ambassadors")){
-      tags_category = "ambassadors"
+  let tags_category = "ambassadors"
+  if(window.location.href.includes("circles")){
+      tags_category = "circles"
   }
   tags = tags.filter(t =>
       t.href.includes(tags_category)
