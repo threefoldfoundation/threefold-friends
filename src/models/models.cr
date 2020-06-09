@@ -75,10 +75,11 @@ class ProjectInfo
         cities: Array(City),
         mission: String,
         description: String,
-        rank: Int64
+        rank: Int64,
+        is_circle: Bool
     )
 
-    def initialize(@name="", @team=Array(String).new, @cities=Array(City).new, @countries=Array(Country).new, @mission="", @description="", @rank=1_i64);end
+    def initialize(@name="", @team=Array(String).new, @cities=Array(City).new, @countries=Array(Country).new, @mission="", @description="", @rank=1_i64, @is_circle=false);end
 
 end
 

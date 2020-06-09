@@ -96,6 +96,10 @@ def _walk(path : String = CURR_PATH)
                       if info.has_key?("description")
                         item.as(Project).info.description =  info["description"].as(String)
                       end
+                      
+                      if info.has_key?("is_circle")
+                        item.as(Project).info.is_circle =  info["is_circle"].as(Bool)
+                      end
 
                       if info.has_key?("rank")
                         rank : Int64 = info["rank"].as(Int64)
