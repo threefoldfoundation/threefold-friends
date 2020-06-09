@@ -20,7 +20,7 @@ async function fetch_data(){
     for (var p of obj.projects) {
         p.name = p.info.name
     }
-    return { projects: obj.projects.sort(compare), users: obj.people };
+    return { projects: obj.projects.sort(compare), users: obj.people.filter(user =>user.ecosystem.memberships.includes('ambassador')) };
 }
 
 fetch_data().then((data)=>{

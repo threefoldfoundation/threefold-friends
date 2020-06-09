@@ -6,7 +6,7 @@
 
 <section>
   <div class="mini-posts">
-    <h1>Projects</h1>
+    <h1>Circles</h1>
 
     <div class="row">
       {#each miniProjects as miniProject}
