@@ -7,16 +7,16 @@
   <header>
     <div class="title">
       {#if item.isUser}
-        <h3>Person:</h3>
-        <a class="author text-uppercase" href="#/ambassadors/{item.name}">
+        <h3>Ambassador:</h3>
+        <a class="author"  href="#/ambassadors/{item.name}">
         <img src={item.links.image_path} alt="" />
-        {item.name}
+        {item.info.name}
       </a>
       {:else}
-        <h3>Company:</h3>
-        <a class="author text-uppercase" href="#/circles/{item.name}">
+        <h3>Circle:</h3>
+        <a class="author" href="#/circles/{item.name}">
         <img src={item.links.image_path} alt="" />
-        {item.name}
+        {item.info.name}
       </a>
       {/if}
       
