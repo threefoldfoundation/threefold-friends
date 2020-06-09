@@ -45,7 +45,7 @@
         {/if}
       </li>
       <li>
-        {#if active == 'projects'}
+        {#if active == 'circles'}
           <a class="active" href="#/circles" on:click={linkClick}>Circles</a>
         {:else}
           <a href="#/circles" on:click={linkClick}>Circles</a>

@@ -13,9 +13,9 @@ export let tags;
     var projectsIdx = t.indexOf("#/circles/tags")
     var peopleIdx = t.indexOf("#/ambassadors/tags")
     if (projectsIdx != -1)
-      return t.substring(projectsIdx+16)
+      return t.substring(projectsIdx+15)
     else if (peopleIdx != -1)
-      return t.substring(peopleIdx+13)
+      return t.substring(peopleIdx+19)
     else 
       return "all"
   }
