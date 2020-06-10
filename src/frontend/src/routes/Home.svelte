@@ -15,7 +15,7 @@
       <div class="row">
       <header class="text-center mx-auto mb-2">
         <div class="title">
-          <h1 class="text-uppercase my-3">AMBASSADORS</h1>
+          <h1 class="text-uppercase my-3">community</h1>
           <p class="font-weight-normal ambassador_text">
             Our ambassadors are people who support us on the journey to a better world.
             <br>
