@@ -11,7 +11,7 @@
       </span>
 
       <p class="lead">
-        A collaborative ecosystem of projects and ambassadors that are expanding
+        A collaborative ecosystem of projects and community that are expanding
         and distributing social and environmental goods in a decentralized, peer
         to peer manner for humanity and our planet
       </p>

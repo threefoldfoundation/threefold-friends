@@ -17,7 +17,7 @@
         <div class="title">
           <h1 class="text-uppercase my-3">community</h1>
           <p class="font-weight-normal ambassador_text">
-            Our ambassadors are people who support us on the journey to a better world.
+            Our community are people who support us on the journey to a better world.
             <br>
             Each of them believes in the values and mission of ThreeFold. They are proud Token Holders and all have a value-added network.
           </p>

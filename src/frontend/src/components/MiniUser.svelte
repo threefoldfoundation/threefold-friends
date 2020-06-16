@@ -5,15 +5,15 @@
 <article>
   <header>
     <h3>
-      <a href="#/ambassadors/{user.name}">{user.info.name}</a>
+      <a href="#/community/{user.name}">{user.info.name}</a>
     </h3>
   </header>
   {#if user.links.image_path != ''}
-    <a href="#/ambassadors/{user.name}" class="image">
+    <a href="#/community/{user.name}" class="image">
       <img src={user.links.image_path} alt="" />
     </a>
   {:else}
-    <a href="#/ambassadors/{user.name}" class="image">
+    <a href="#/community/{user.name}" class="image">
       <img src="images/pic01.jpg" alt="" />
     </a>
   {/if}

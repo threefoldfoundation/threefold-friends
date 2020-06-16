@@ -9,7 +9,7 @@
 <div class="col-sm-12">
   <article class="post search_result row p-3 mb-4">
     <div class="col-sm-3">
-      <a class="image featured mb-0" href="#/ambassadors/{user.name}">
+      <a class="image featured mb-0" href="#/community/{user.name}">
         <img src={user.links.image_path} alt="" class="img-thumbnail" />
       </a>
     </div>
@@ -30,7 +30,7 @@
         <ul class="stats">
           {#each user.ecosystem.memberships as membership}
             <li>
-              <a class="text-uppercase" href="#/ambassadors/tags/{membership}">
+              <a class="text-uppercase" href="#/community/tags/{membership}">
                 {membership}
               </a>
             </li>

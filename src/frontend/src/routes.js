@@ -23,10 +23,10 @@ if (!urlParams.has('routemap')) {
         '/': Home,
         '/circles': Projects,
         '/circles/tags/:tagname': Projects,
-        '/ambassadors': Users,
-        '/ambassadors/tags/:tagname': Users,
+        '/community': Users,
+        '/community/tags/:tagname': Users,
         '/circles/:name': ProjectDetails, 
-        '/ambassadors/:name': UserDetails,
+        '/community/:name': UserDetails,
         '/search/:keyword': Search,
         '/join': Join,
         '/council': Council,
@@ -48,11 +48,11 @@ if (!urlParams.has('routemap')) {
     // Exact path
     routes.set('/', Home)
     routes.set('/circles', Projects)
-    routes.set('/ambassadors', Users)
+    routes.set('/community', Users)
     routes.set( '/circles/tags/:tagname', Projects)
-    routes.set( '/ambassadors/tags/:tagname', Users)
+    routes.set( '/community/tags/:tagname', Users)
     routes.set('/circles/:name', ProjectDetails)
-    routes.set('/ambassadors/:name', UserDetails)
+    routes.set('/community/:name', UserDetails)
     routes.set('/search/:keyword', Search)
     routes.set('/join', Join)
     routes.set('/council', Council)

@@ -22,7 +22,7 @@ def _walk(path : String = CURR_PATH)
     end
     if ! File.file? path + "/" + name
       if level == 1
-        if path_parts[0] == "projects"
+        if path_parts[0] == "circles"
           item = Project.new name
           WEBSITES.projects.push(item)
         elsif path_parts[0] == "people"
@@ -34,7 +34,7 @@ def _walk(path : String = CURR_PATH)
     else
       if level == 2
         items = Array(Project|User).new
-        if path_parts[0] == "projects"
+        if path_parts[0] == "circles"
           items = WEBSITES.projects
         elsif path_parts[0] == "people"
           items = WEBSITES.people
@@ -49,14 +49,14 @@ def _walk(path : String = CURR_PATH)
 
               if name == "logo.png"
                 logo_path = p.gsub(Dir.current + "/public", "")
-                if path_parts[0] == "projects"
+                if path_parts[0] == "circles"
                   item.as(Project).links.logo_path = logo_path
                 else
                   item.as(User).links.logo_path = logo_path
                 end
               elsif name == "card.png"
                 card_path = p.gsub(Dir.current + "/public", "")
-                if path_parts[0] == "projects"
+                if path_parts[0] == "circles"
                   item.as(Project).links.card_path = card_path
                 else
                   item.as(User).links.card_path = card_path
@@ -64,7 +64,7 @@ def _walk(path : String = CURR_PATH)
               else
                 if name.ends_with?(".png") || name.ends_with?(".jpeg") || name.ends_with?(".jpg")
                   image_path = p.gsub(Dir.current + "/public", "")
-                  if path_parts[0] == "projects"
+                  if path_parts[0] == "circles"
                     item.as(Project).links.image_path = image_path
                   else
                     item.as(User).links.image_path = image_path
@@ -82,7 +82,7 @@ def _walk(path : String = CURR_PATH)
             x, parsed_codes = page.parse
             
             begin
-              if path_parts[0] == "projects"
+              if path_parts[0] == "circles"
                 
                 if parsed_codes.size > 0
                   parsed_codes.each do |code|
@@ -96,11 +96,7 @@ def _walk(path : String = CURR_PATH)
                       if info.has_key?("description")
                         item.as(Project).info.description =  info["description"].as(String)
                       end
-                      
-                      if info.has_key?("is_circle")
-                        item.as(Project).info.is_circle =  info["is_circle"].as(Bool)
-                      end
-
+                    
                       if info.has_key?("rank")
                         rank : Int64 = info["rank"].as(Int64)
                         if rank > 5_64
@@ -119,7 +115,8 @@ def _walk(path : String = CURR_PATH)
                       end
                       
                       info["team"].as(Array).each do |user|
-                        item.as(Project).info.team.push user.as(String)
+                        u = user.as(Array)
+                        item.as(Project).info.team.push TeamInfo.new u[0].as(String), u[1].as(String)
                       end
 
                       item.as(Project).info.countries =  Array(Country).new
@@ -136,16 +133,16 @@ def _walk(path : String = CURR_PATH)
                         item.as(Project).ecosystem.categories.push category.as(String)
                       end
 
-                      ecosystem["badges"].as(Array).each do |badge|
-                        item.as(Project).ecosystem.badges.push badge.as(String)
-                      end
-
-                      item.as(Project).links.linkedin =  links["linkedin"].as(String)
-                      item.as(Project).links.wiki =  links["wiki"].as(String)
+                      # item.as(Project).links.linkedin =  links["linkedin"].as(String)
+                      # item.as(Project).links.wiki =  links["wiki"].as(String)
                       item.as(Project).links.video =  links["video"].as(String)
-                      links["websites"].as(Array).each do |website|
-                        item.as(Project).links.websites.push website.as(String)
-                      end
+                      # links["websites"].as(Array).each do |website|
+                      #   item.as(Project).links.websites.push website.as(String)
+                      # end
+                      item.as(Project).links.threefold_circles_url =  links["threefold_circles_url"].as(String)
+                      item.as(Project).links.threefold_forum_url =  links["threefold_forum_url"].as(String)
+                      item.as(Project).links.freeflow_connect_room =  links["freeflow_connect_room"].as(String)
+                      item.as(Project).links.chat_page_url =  links["chat_page_url"].as(String)
                       
                     elsif data.has_key?("milestone")
                       milestone = data["milestone"].as(Hash)
@@ -176,9 +173,10 @@ def _walk(path : String = CURR_PATH)
                     item.as(User).info.cities.push City.new city.as(String)
                   end
 
-                  item.as(User).info.companies =  Array(Company).new
-                  info["companies"].as(Array).each do |company|
-                    item.as(User).info.companies.push Company.new company.as(String)
+                  item.as(User).info.circles =  Array(Circle).new
+                  info["circles"].as(Array).each do |circle|
+                    c  = circle.as(Array)
+                    item.as(User).info.circles.push Circle.new c[0].as(String) , c[1].as(String)
                   end
                   
                   item.as(User).links.linkedin =  links["linkedin"].as(String)
@@ -301,7 +299,7 @@ get "/circles/:name" do |env|
 end
 
 
-get "/ambassadors/:name" do |env|
+get "/community/:name" do |env|
   WEBSITES.projects.clear
   WEBSITES.people.clear
   _walk 
@@ -322,7 +320,7 @@ get "/ambassadors/:name" do |env|
 <html>
   <head>
     <title>Concious Internet Alliance</title>
-    <meta property="og:url"           content="https://#{host}/ambassadors/#{name}"/>
+    <meta property="og:url"           content="https://#{host}/community/#{name}"/>
     <meta property="og:type"          content="article" />
     <meta property="og:title"         content="#{p.not_nil!.info.name.capitalize}" />
     <meta property="og:description"   content="" />
@@ -333,7 +331,7 @@ get "/ambassadors/:name" do |env|
 </html>
 )
   else
-    env.redirect "/#/ambassadors/#{name}"
+    env.redirect "/#/community/#{name}"
   end
 
 end

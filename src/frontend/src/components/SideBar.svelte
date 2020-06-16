@@ -18,7 +18,7 @@
       <img src="images/logo.png" alt="" />
     </a> -->
     <header>
-      <h1>Threefold Ambassadors</h1>
+      <h1>Threefold Community</h1>
       <p>
         
       </p>
@@ -31,7 +31,7 @@
   
 
 
-{#if location.href.includes("#/ambassadors")}
+{#if location.href.includes("#/community")}
   <MiniUserList {users} />
   {:else}
 <MiniProjectList {miniProjects} />  

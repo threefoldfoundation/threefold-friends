@@ -1,4 +1,4 @@
-# webserver for ambassadors
+# webserver for Threefold community
 
 Webserver for ambassador website
 

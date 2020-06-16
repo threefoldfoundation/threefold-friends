@@ -20,7 +20,7 @@ async function fetch_data(){
     for (var p of obj.projects) {
         p.name = p.info.name
     }
-    return { projects: obj.projects.filter(p =>p.info.is_circle == true).sort(compare), users: obj.people.filter(user =>user.ecosystem.memberships.includes('ambassador')) };
+    return { projects: obj.projects.sort(compare), users: obj.people.filter(user =>user.ecosystem.memberships.includes('ambassador')) };
 }
 
 fetch_data().then((data)=>{
@@ -48,7 +48,7 @@ fetch_data().then((data)=>{
     })
 
     user_tags.forEach(function(t){
-        all_tags.push({"href": "#/ambassadors/tags/"+t, "name": t})
+        all_tags.push({"href": "#/community/tags/"+t, "name": t})
     })
 
     project_tags.forEach(function(t){

@@ -1,7 +1,7 @@
 <script>
 export let tags;
 
-  let tags_category = "ambassadors"
+  let tags_category = "community"
   if(window.location.href.includes("circles")){
       tags_category = "circles"
   }
@@ -11,7 +11,7 @@ export let tags;
 
   function getSelected(t){
     var projectsIdx = t.indexOf("#/circles/tags")
-    var peopleIdx = t.indexOf("#/ambassadors/tags")
+    var peopleIdx = t.indexOf("#/community/tags")
     if (projectsIdx != -1)
       return t.substring(projectsIdx+15)
     else if (peopleIdx != -1)
@@ -43,9 +43,9 @@ export let tags;
      <li class="my-1"><a  on:click={tagSelected} class= "active" href="#/circles">ALL</a></li>
   {:else if tags_category == "circles"}
      <li class="my-1"><a   on:click={tagSelected} href="#/circles">ALL</a></li>
-  {:else if selected == "all" && tags_category == "ambassadors"}
-  <li class="my-1"><a  on:click={tagSelected}  class= "active" href="#/ambassadors">ALL</a></li>
-  {:else if tags_category == "ambassadors"}
-  <li class="my-1"><a  on:click={tagSelected} href="#/ambassadors">ALL</a></li>
+  {:else if selected == "all" && tags_category == "community"}
+  <li class="my-1"><a  on:click={tagSelected}  class= "active" href="#/community">ALL</a></li>
+  {:else if tags_category == "community"}
+  <li class="my-1"><a  on:click={tagSelected} href="#/community">ALL</a></li>
   {/if}
 </ul>

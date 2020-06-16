@@ -8,7 +8,7 @@
     <div class="title">
       {#if item.isUser}
         <h3>Ambassador:</h3>
-        <a class="author"  href="#/ambassadors/{item.name}">
+        <a class="author"  href="#/community/{item.name}">
         <img src={item.links.image_path} alt="" />
         {item.info.name}
       </a>

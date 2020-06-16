@@ -66,11 +66,19 @@ class ProjectEcoSystem
     def initialize(@categories=Array(String).new, @badges=Array(String).new);end
 end
 
+class TeamInfo
+    JSON.mapping(
+        name: String,
+        role: String
+    )
+
+    def initialize(@name="", @role=""); end
+end
 
 class ProjectInfo
     JSON.mapping(
         name: String,
-        team: Array(String),
+        team: Array(TeamInfo),
         countries: Array(Country),
         cities: Array(City),
         mission: String,
@@ -79,7 +87,7 @@ class ProjectInfo
         is_circle: Bool
     )
 
-    def initialize(@name="", @team=Array(String).new, @cities=Array(City).new, @countries=Array(Country).new, @mission="", @description="", @rank=1_i64, @is_circle=false);end
+    def initialize(@name="", @team=Array(TeamInfo).new, @cities=Array(City).new, @countries=Array(Country).new, @mission="", @description="", @rank=1_i64, @is_circle=false,);end
 
 end
 
@@ -123,7 +131,14 @@ class City
     def initialize(@name="");end
 end
 
+class Circle
+    JSON.mapping(
+        name: String,
+        role: String
+    )
 
+    def initialize(@name="", @role=""); end
+end
 
 
 class UserInfo
@@ -132,10 +147,11 @@ class UserInfo
         bio: String,
         companies: Array(Company),
         countries: Array(Country),
-        cities: Array(City)
+        cities: Array(City),
+        circles: Array(Circle)
     )
 
-    def initialize(@name="", @bio="", @companies=Array(Company).new, @cities=Array(City).new, @countries=Array(Country).new);end
+    def initialize(@name="", @bio="", @companies=Array(Company).new, @cities=Array(City).new, @countries=Array(Country).new, @circles=Array(Circle).new);end
 
 end
 
@@ -148,10 +164,14 @@ class Links
         video: String,
         logo_path: String,
         image_path: String,
-        card_path: String
+        card_path: String,
+        threefold_circles_url: String,
+        threefold_forum_url: String,
+        freeflow_connect_room: String,
+        chat_page_url: String
     )
 
-    def initialize(@linkedin="", @websites=Array(String).new, @wiki="", @video="", @image_path="", @logo_path="", @card_path="");end
+    def initialize(@linkedin="", @websites=Array(String).new, @wiki="", @video="", @image_path="", @logo_path="", @card_path="", @threefold_circles_url="", @threefold_forum_url="", @freeflow_connect_room="", @chat_page_url="");end
 
 end
 

@@ -118,7 +118,7 @@ let project_data = $projects.find(
           <ul>
             {#each team as person}
               <li class="my-2">
-                <a href="#/ambassadors/{person.name}" class="author">
+                <a href="#/community/{person.name}" class="author">
                   <img src={person.links.image_path} alt="" />
                   {person.info.name}
                 </a>
