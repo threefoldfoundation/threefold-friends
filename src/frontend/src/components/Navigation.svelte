@@ -6,7 +6,7 @@
       return "ambassadors";
     } else if (t.includes("#/circles") || t == "CIRCLES") {
       return "circles";
-    }else if (t.includes("#/values") || t == "VALUES") {
+    } else if (t.includes("#/values") || t == "VALUES") {
       return "values";
     }
     return "home";
@@ -46,6 +46,13 @@
       </li>
       <li>
         {#if active == 'circles'}
+          <a class="active" href="#/circles" on:click={linkClick}>Projects</a>
+        {:else}
+          <a href="#/circles" on:click={linkClick}>Projects</a>
+        {/if}
+      </li>
+      <li>
+        {#if active == 'circles'}
           <a class="active" href="#/circles" on:click={linkClick}>Circles</a>
         {:else}
           <a href="#/circles" on:click={linkClick}>Circles</a>
@@ -53,7 +60,9 @@
       </li>
       <li>
         {#if active == 'ambassadors'}
-          <a class="active" href="#/ambassadors" on:click={linkClick}>Ambassadors</a>
+          <a class="active" href="#/ambassadors" on:click={linkClick}>
+            Ambassadors
+          </a>
         {:else}
           <a href="#/ambassadors" on:click={linkClick}>Ambassadors</a>
         {/if}

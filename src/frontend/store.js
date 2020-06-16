@@ -12,7 +12,7 @@ function compare(a, b) {
     return 0;
 }
 
-async function fetch_data(){
+async function fetch_data() {
     let response = await fetch(`${window.location.origin}/data`);
     let text = await response.text();
     let data = text;
@@ -20,39 +20,38 @@ async function fetch_data(){
     for (var p of obj.projects) {
         p.name = p.info.name
     }
-    return { projects: obj.projects.filter(p =>p.info.is_circle == true).sort(compare), users: obj.people.filter(user =>user.ecosystem.memberships.includes('ambassador')) };
+    return { projects: obj.projects, users: obj.people.filter(user => user.ecosystem.memberships.includes('ambassador')) };
 }
 
-fetch_data().then((data)=>{
+fetch_data().then((data) => {
     fetched_users = data['users']
     fetched_projects = data['projects']
-    console.log(fetched_projects)
     users.set(fetched_users)
     projects.set(fetched_projects)
     loading.set(false)
 
-    data['projects'].map(function(p){
-        p.ecosystem.categories.forEach(function(item){
-            if (! project_tags.includes(item)){
+    data['projects'].map(function(p) {
+        p.ecosystem.categories.forEach(function(item) {
+            if (!project_tags.includes(item)) {
                 project_tags.push(item)
             }
         })
     })
 
-    data['users'].map(function(u){
-        u.ecosystem.memberships.forEach(function(item){
-            if (! user_tags.includes(item)){
+    data['users'].map(function(u) {
+        u.ecosystem.memberships.forEach(function(item) {
+            if (!user_tags.includes(item)) {
                 user_tags.push(item)
             }
         })
     })
 
-    user_tags.forEach(function(t){
-        all_tags.push({"href": "#/ambassadors/tags/"+t, "name": t})
+    user_tags.forEach(function(t) {
+        all_tags.push({ "href": "#/ambassadors/tags/" + t, "name": t })
     })
 
-    project_tags.forEach(function(t){
-        all_tags.push({"href": "#/circles/tags/"+t, "name": t})
+    project_tags.forEach(function(t) {
+        all_tags.push({ "href": "#/circles/tags/" + t, "name": t })
     })
 
     projectags.set(project_tags)

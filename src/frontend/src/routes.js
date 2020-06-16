@@ -4,11 +4,13 @@
 import Home from './routes/Home.svelte'
 import Values from './routes/Values.svelte'
 import Projects from './routes/Projects.svelte'
+import Circles from './routes/Circles.svelte'
 import Users from './routes/Users.svelte'
 import Search from './routes/Search.svelte'
 import Join from './routes/Join.svelte'
 import Council from "./routes/Council.svelte"
 import ProjectDetails from './routes/ProjectDetails.svelte'
+import CircleDetails from './routes/CircleDetails.svelte'
 import UserDetails from './routes/UserDetails.svelte'
 import Error from './routes/Error.svelte'
 import * as animateScroll from "svelte-scrollto";
@@ -23,9 +25,11 @@ if (!urlParams.has('routemap')) {
         '/': Home,
         '/circles': Projects,
         '/circles/tags/:tagname': Projects,
+        '/circles': Circles,
+        '/circles/tags/:tagname': CircleDetails,
         '/ambassadors': Users,
         '/ambassadors/tags/:tagname': Users,
-        '/circles/:name': ProjectDetails, 
+        '/circles/:name': ProjectDetails,
         '/ambassadors/:name': UserDetails,
         '/search/:keyword': Search,
         '/join': Join,
@@ -45,12 +49,14 @@ if (!urlParams.has('routemap')) {
     }
 } else {
     routes = new Map()
-    // Exact path
+        // Exact path
     routes.set('/', Home)
     routes.set('/circles', Projects)
+    routes.set('/circles', Circles)
     routes.set('/ambassadors', Users)
-    routes.set( '/circles/tags/:tagname', Projects)
-    routes.set( '/ambassadors/tags/:tagname', Users)
+    routes.set('/circles/tags/:tagname', Projects)
+    routes.set('/circles/tags/:tagname', CircleDetails)
+    routes.set('/ambassadors/tags/:tagname', Users)
     routes.set('/circles/:name', ProjectDetails)
     routes.set('/ambassadors/:name', UserDetails)
     routes.set('/search/:keyword', Search)
